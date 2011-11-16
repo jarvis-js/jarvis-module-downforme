@@ -5,7 +5,7 @@ module.exports = function(bot) {
 	var module = new bot.Module();
 
 	module.load = function() {
-		bot.registerCommand(module.name, /^is (.*?) (?:up|down)(?:\?)?$/i, function(request, domain) {
+		module.addCommand(/^is (.*?) (?:up|down)(?:\?)?$/i, function(request, domain) {
 			var options = {
 				host: 'www.isup.me',
 				path: '/' + domain
