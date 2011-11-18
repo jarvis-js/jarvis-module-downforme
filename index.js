@@ -1,8 +1,6 @@
 var http = require('http');
 
-module.exports = function(bot) {
-
-	var module = new bot.Module();
+module.exports = function(bot, module) {
 
 	module.load = function() {
 		module.addCommand(/^is (.*?) (?:up|down)(?:\?)?$/i, function(request, domain) {
@@ -32,5 +30,4 @@ module.exports = function(bot) {
 		});
 	};
 
-	return module;
 };
