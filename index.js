@@ -22,7 +22,7 @@ module.exports = function(bot, module) {
 					else {
 						request.reply = domain + ' looks DOWN from here';
 					}
-					bot.respond(request);
+					bot.reply(request);
 				});
 			}
 		});
