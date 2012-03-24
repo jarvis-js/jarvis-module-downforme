@@ -6,7 +6,7 @@ module.exports = function(bot, module) {
 		var options = {
 			host: 'www.isup.me',
 			path: '/' + domain
-		}
+		};
 		http.get(options, function(res) {
 			if (res.statusCode == 200) {
 				var body = '';
