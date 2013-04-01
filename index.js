@@ -1,10 +1,13 @@
 var http = require('http');
 
-module.exports = function(bot, module) {
+module.exports = function(jarvis, module) {
 
-	module.addCommand({
+	module.addAction(module.createCommand({
+		name: 'Down For Me',
+		description: 'Check if a website is up or down using the http://isup.me/ service',
+		example: "is google.com up?\nis this-site-is-never-up.com down?",
 		match: /^is (.*?) (?:up|down)(?:\?)?$/i,
-		func: function(request, domain) {
+		func: function(message, domain) {
 			var options = {
 				host: 'www.isup.me',
 				path: '/' + domain
@@ -15,20 +18,21 @@ module.exports = function(bot, module) {
 					res.on('data', function(chunk) {
 						body += chunk;
 					}).on('end', function() {
+						var reply = '';
 						if (body.match('It\'s just you.')) {
-							request.reply = domain + ' looks UP from here';
+							reply = domain + ' looks UP from here';
 						}
 						else if (body.match('Huh?')) {
-							request.reply = domain + ' doesn\'t look like a domain';
+							reply = domain + ' doesn\'t look like a domain';
 						}
 						else {
-							request.reply = domain + ' looks DOWN from here';
+							reply = domain + ' looks DOWN from here';
 						}
-						bot.reply(request);
+						jarvis.reply(message, reply);
 					});
 				}
 			});
 		}
-	});
+	}));
 
 };

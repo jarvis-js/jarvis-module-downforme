@@ -1,12 +1,12 @@
 {
   "author": "Alex Whitman <alex@alexwhitman.com>",
-  "name": "dobot-module-downforme",
+  "name": "jarvis-module-downforme",
   "description": "Check site up/down status",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "http://dobot.github.com/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dobot/dobot-module-downforme.git"
+    "url": "git://github.com/dobot/jarvis-module-downforme.git"
   },
   "keywords": ["bot"],
   "engines": {
